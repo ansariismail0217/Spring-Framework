@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/beans/spring-context-3.0.xsd">
+
+	<bean id="addr" class="com.spring.Address">
+    	<property name="city" value="Bengaluru"></property>
+    	<property name="state" value="Karnataka"></property>
+    	<property name="zipCode" value="510006"></property>
+    </bean>
+
+    <bean id="emp1" class="com.spring.Employee" init-method="myInit" destroy-method="myDestroy">
+    	<property name="id" value="102"></property>
+    	<property name="name" value="Ansari"></property>
+    	<!-- constructor injection -->
+    	<!-- <constructor-arg ref="addr"></constructor-arg> -->
+    	<!-- setter injection -->
+    	<property name="address" ref="addr"></property>
+    </bean>
+    
+    <!-- <bean id="emp2" class="com.spring.Employee">
+    	<property name="id" value="103"></property>
+    	<property name="name" value="Ismail"></property>
+    	<property name="address" value="Pune"></property>
+    </bean> -->
+
+</beans>
